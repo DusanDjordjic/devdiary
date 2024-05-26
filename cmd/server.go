@@ -2,22 +2,17 @@ package main
 
 import (
 	"dev-diary/router"
-	"net/http"
-	"time"
+	"dev-diary/utils"
+
+	"github.com/labstack/echo"
 )
 
 func main() {
-	mux := http.NewServeMux()
+	server := echo.New()
+	server.Static("/static", utils.GetStaticFolderPath())
+	router.SetupRouter(server)
 
-	router.SetupRouter(mux)
-
-	server := http.Server{
-		Addr:           "127.0.0.1:8080",
-		Handler:        mux,
-		ReadTimeout:    10 * time.Second,
-		WriteTimeout:   10 * time.Second,
-		MaxHeaderBytes: 1 << 20,
+	if err := server.Start("127.0.0.1:8080"); err != nil {
+		panic(err)
 	}
-
-	server.ListenAndServe()
 }

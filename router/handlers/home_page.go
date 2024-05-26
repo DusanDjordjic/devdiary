@@ -3,11 +3,12 @@ package handlers
 import (
 	"dev-diary/utils"
 	"html/template"
-	"net/http"
+
+	"github.com/labstack/echo"
 )
 
-func HomePageHandler(response http.ResponseWriter, request *http.Request) {
-	template := template.Must(template.ParseFiles(utils.GetTemplateFilepath("home.html"), utils.GetTemplateFilepath("base.html")))
+func HomePageHandler(e echo.Context) error {
+	template := template.Must(template.ParseFiles(utils.GetTemplateFilePath("home.html"), utils.GetTemplateFilePath("base.html")))
 
-	template.ExecuteTemplate(response, "base", nil)
+	return template.ExecuteTemplate(e.Response(), "base", nil)
 }

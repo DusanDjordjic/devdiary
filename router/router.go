@@ -2,9 +2,10 @@ package router
 
 import (
 	"dev-diary/router/handlers"
-	"net/http"
+
+	"github.com/labstack/echo"
 )
 
-func SetupRouter(mux *http.ServeMux) {
-	mux.HandleFunc("GET /", handlers.HomePageHandler)
+func SetupRouter(server *echo.Echo) {
+	server.GET("/", handlers.HomePageHandler)
 }
