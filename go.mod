@@ -2,7 +2,11 @@ module dev-diary
 
 go 1.22.3
 
-require github.com/labstack/echo v3.3.10+incompatible
+require (
+	github.com/jmoiron/sqlx v1.4.0
+	github.com/labstack/echo v3.3.10+incompatible
+	github.com/lib/pq v1.10.9
+)
 
 require (
 	github.com/labstack/gommon v0.4.2 // indirect
