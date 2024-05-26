@@ -1,0 +1,12 @@
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+.image img {
+    max-width: 500px;
+    width: 100%;
+    aspect-ratio: 1;
+    display: block;
+    border-radius: 0.5rem;
+}

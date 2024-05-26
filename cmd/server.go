@@ -1,19 +1,18 @@
 package main
 
 import (
-	"dev-diary/db"
 	"dev-diary/router"
 	"dev-diary/utils"
-	"log"
 
 	"github.com/labstack/echo"
 )
 
 func main() {
-	err := db.Connect()
-	if err != nil {
-		log.Fatal(err)
-	}
+	// err := db.Connect()
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
 	server := echo.New()
 	server.Static("/static", utils.GetStaticFolderPath())
 	router.SetupRouter(server)
@@ -22,8 +21,7 @@ func main() {
 		panic(err)
 	}
 
-	if err := db.Close(); err != nil {
-		panic(err)
-	}
-
+	// if err := db.Close(); err != nil {
+	// 	panic(err)
+	// }
 }

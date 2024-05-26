@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/static/layout.css">
     <link rel="stylesheet" href="/static/main.css">
     <link rel="stylesheet" href="/static/base.css">
+    {{ template "imports" . }}
 </head>
 <body>
     <header class="header">
@@ -28,9 +29,16 @@
         </div>
     </header>
    {{ template "content" . }} 
-   <footer>
-   &copy; 2024 devdiary.com
-   </footer>
+    <footer class="footer">
+        <div class="container">
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
 {{ end }}
