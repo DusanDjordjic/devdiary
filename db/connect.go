@@ -1,28 +1,21 @@
 package db
 
 import (
-	_ "github.com/lib/pq"
+	"dev-diary/models"
 
-	"github.com/jmoiron/sqlx"
+	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
 )
 
-var DB *sqlx.DB = nil
+var DB *gorm.DB = nil
 
 func Connect() error {
-	db, err := sqlx.Open("postgres", "host=localhost port=5432 user=postgres dbname=devdiary password=postgres sslmode=disable")
+	db, err := gorm.Open(sqlite.Open("devdiary.db"), &gorm.Config{})
 	if err != nil {
 		return err
 	}
 
 	DB = db
-
-	return DB.Ping()
-}
-
-func Close() error {
-	if DB != nil {
-		return DB.Close()
-	}
-
+	DB.AutoMigrate(models.Blog{})
 	return nil
 }

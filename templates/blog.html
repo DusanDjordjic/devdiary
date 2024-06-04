@@ -1,8 +1,16 @@
 {{ define "imports"}}
+<link rel="stylesheet" href="/static/blog.css">
 {{ end }}
 {{ define "content" }}
-
-<h1>Welcome to DevDiary</h1>
-<p>Here we talk about technical stuff in depth and really exploring the craft of programming</p>
-
+<div class="container">
+    <div class="posts">
+    {{ range .Posts}}
+        <div class="post">
+            <h2 class="title"><a href="/blog/{{ .ID }}">{{ .Title }}</a></h2>
+            <small class="date">{{ .CreatedAt.Format "2006-01-02" }}</small>
+            <p class="shortdesc">{{ .ShortDescription}}</p>
+        </div>
+    {{ end }}
+    </div>
+</div>
 {{ end }}
