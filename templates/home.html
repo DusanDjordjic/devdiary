@@ -1,9 +1,29 @@
 {{ define "imports"}}
+<link rel="stylesheet" href="/static/blog.css">
 {{ end }}
 
 {{ define "content" }}
 <div class="container">
-    <h1>Dev Diary</h1>
-    <p>Hello and welcome to developersdiary, my name is Dusan Djordjic and this is my journey.</p>
+    <h1>Welcome to Dev Diary!</h1>
+    <h3>Documenting the Journey of Learning New Programming Techniques and Languages</h3>
+    <p>Here, I'll be sharing my journey of learning new programming techniques and languages. Through this blog, I aim to create useful posts about what I've learned and share my knowledge with others to help them achieve their programming goals.</p>
+    <h2>Posts</h2>
+    <div class="posts">
+    {{ range .Posts}}
+        <div class="post">
+            <a class="image-link" href="/post/{{ .ID }}"><img class="image" src="{{ .ImageURL }}" /></a>
+            <div class="data">
+                <p class="date">{{ .CreatedAt.Format "2006-01-02 15:04" }}</p>
+                <h3 class="title"><a href="/post/{{ .ID }}">{{ .Title }}</a></h3>
+                <p class="shortdesc">{{ .Description}}</p>
+                <div class="tags">
+                    <span>#golang</span>
+                    <span>#gorm</span>
+                    <span>#backend</span>
+                </div>
+            </div>
+        </div>
+    {{ end }}
+    </div>
 </div>
 {{ end }}

@@ -8,7 +8,10 @@ import (
 )
 
 func AboutPageHandler(e echo.Context) error {
-	template := template.Must(template.ParseFiles(utils.GetTemplateFilePath("about.html"), utils.GetTemplateFilePath("base.html")))
+	template := template.Must(template.ParseFiles(
+		utils.GetTemplateFilePath("about.html"),
+		utils.GetTemplateFilePath("base.html"),
+	))
 
 	return template.ExecuteTemplate(e.Response(), "base", nil)
 }

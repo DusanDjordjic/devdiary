@@ -2,17 +2,23 @@ package main
 
 import (
 	"dev-diary/db"
+	"dev-diary/logger"
 	"dev-diary/router"
 	"dev-diary/utils"
-	"log"
 
 	"github.com/labstack/echo"
+	"go.uber.org/zap"
 )
 
 func main() {
-	err := db.Connect()
+	err := logger.Setup()
 	if err != nil {
-		log.Fatal(err)
+		println("failed to create logger", err)
+	}
+
+	err = db.Connect()
+	if err != nil {
+		logger.Log.Fatal("failed to connect to db", zap.Error(err))
 	}
 
 	server := echo.New()
@@ -20,6 +26,6 @@ func main() {
 	router.SetupRouter(server)
 
 	if err := server.Start("127.0.0.1:8080"); err != nil {
-		log.Fatal(err)
+		logger.Log.Fatal("failed to close server", zap.Error(err))
 	}
 }

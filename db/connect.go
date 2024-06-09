@@ -16,6 +16,6 @@ func Connect() error {
 	}
 
 	DB = db
-	DB.AutoMigrate(models.Blog{})
+	DB.AutoMigrate(models.Post{})
 	return nil
 }

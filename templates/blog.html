@@ -6,9 +6,10 @@
     <div class="posts">
     {{ range .Posts}}
         <div class="post">
+            <a href="/blog/{{ .ID }}"><img class="image" src="{{ .ImageURL }}" /></a>
+            <p class="date">{{ .CreatedAt.Format "2006-01-02 15:04" }}</p>
             <h2 class="title"><a href="/blog/{{ .ID }}">{{ .Title }}</a></h2>
-            <small class="date">{{ .CreatedAt.Format "2006-01-02" }}</small>
-            <p class="shortdesc">{{ .ShortDescription}}</p>
+            <p class="shortdesc">{{ .Description}}</p>
         </div>
     {{ end }}
     </div>

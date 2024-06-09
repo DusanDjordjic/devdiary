@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"dev-diary/services"
 	"dev-diary/utils"
 	"html/template"
 
@@ -8,7 +9,17 @@ import (
 )
 
 func HomePageHandler(e echo.Context) error {
-	template := template.Must(template.ParseFiles(utils.GetTemplateFilePath("home.html"), utils.GetTemplateFilePath("base.html")))
+	posts, _, err := services.GetAllPosts()
+	if err != nil {
+		return err
+	}
 
-	return template.ExecuteTemplate(e.Response(), "base", nil)
+	template := template.Must(template.ParseFiles(
+		utils.GetTemplateFilePath("home.html"),
+		utils.GetTemplateFilePath("base.html"),
+	))
+
+	return template.ExecuteTemplate(e.Response(), "base", map[string]any{
+		"Posts": posts,
+	})
 }

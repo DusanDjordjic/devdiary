@@ -1,14 +1,16 @@
 {{ define "imports"}}
 <link rel="stylesheet" href="/static/post.css">
+<script type="module" src="https://md-block.verou.me/md-block.js"></script>
 {{ end }}
 {{ define "content" }}
 <div class="container">
     <div class="post">
+        <img class="image" src="{{ .ImageURL }}" />
+        <p class="date">{{ .CreatedAt.Format "2006-01-02 15:04" }}</p>
         <h1 class="title">{{ .Title }}</h1>
-        <small class="date">{{ .CreatedAt.Format "2006-01-02" }}</small>
-        <p class="shortdesc">{{ .ShortDescription}}</p>
+        <p class="shortdesc">{{ .Description}}</p>
         <hr/>
-        <p class="desc">{{ .Description }}</p>
+        {{ .Content }}
     </div>
 </div>
 {{ end }}

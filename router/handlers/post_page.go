@@ -17,12 +17,22 @@ func PostPageHandler(e echo.Context) error {
 		return err
 	}
 
-	blog, err := services.GetBlogByID(uint(id))
+	post, err := services.GetPostByID(uint(id))
 	if err != nil {
 		return err
 	}
 
-	template := template.Must(template.ParseFiles(utils.GetTemplateFilePath("post.html"), utils.GetTemplateFilePath("base.html")))
+	tmp := template.Must(template.ParseFiles(
+		utils.GetTemplateFilePath("post.html"),
+		utils.GetTemplateFilePath("base.html"),
+	))
 
-	return template.ExecuteTemplate(e.Response(), "base", blog)
+	return tmp.ExecuteTemplate(e.Response(), "base", map[string]any{
+		"ID":          post.ID,
+		"CreatedAt":   post.CreatedAt,
+		"Title":       post.Title,
+		"Description": post.Description,
+		"ImageURL":    post.ImageURL,
+		"Content":     template.HTML(post.Content),
+	})
 }
