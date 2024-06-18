@@ -1,8 +1,9 @@
 :root {
-    --color-bg: #12191B;
+    --color-bg: #131515;
     --color-text: #fff;
-    --color-primary: #107AB0;
-
+    --color-text-gray: #8e9399;
+    --color-primary: #57b8ff;
+    --color-danger: #ff595e;
 
     --space-1: 0.5rem;
     --space-2: 1rem;

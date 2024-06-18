@@ -11,8 +11,17 @@ html, body {
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
-    font-variation-settings:
-        "width" 100;
+}
+
+input, select, textarea {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+textarea {
+  resize: vertical;
 }
 
 a {

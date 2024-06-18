@@ -1,9 +1,45 @@
 {{ define "imports"}}
+<link rel="stylesheet" href="/static/contact.css" />
 {{ end }}
 
 {{ define "content" }}
 
-<h1>Contact me</h1>
-<p>If you have any questions or suggestions feel free to contact me on email: dusandev001@gmail.com</p>
+<div class="container">
+    <h1>Need an Application?</h1>
+    <p class="subheader">
+    Feel free to reach out if you're looking for assistance with developing an application or website
+    </p>
+
+    <div class="layout">
+        <form class="form" method="POST" action="/send_message">
+            <h2>Send me a message</h2>
+            <div class="form-control">
+                <input type="text" name="name" placeholder="Name*" required/>
+            </div>
+            <div class="form-control">
+                <input type="email" name="email" placeholder="Email*"required />
+            </div>
+            <div class="form-control">
+                <textarea name="message" placeholder="Message*" rows="5" required></textarea>
+            </div>
+            <div class="form-control">
+                <button>Send Message</button>
+            </div>
+        </form>
+        <div class="contact-details-wrapper">
+            <h2>or contact me directly</h2>
+            <div class="contact-details">
+                <div class="contact-detail">
+                    <h3>WhatsApp:</h3>
+                    <p>+381641315524</p>
+                </div>
+                <div class="contact-detail">
+                    <h3>Email:</h3>
+                    <p>hi@developersdiary.me</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {{ end }}

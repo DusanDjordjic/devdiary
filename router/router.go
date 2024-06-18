@@ -12,6 +12,7 @@ func SetupRouter(server *echo.Echo) {
 	server.GET("/about", handlers.AboutPageHandler)
 	server.GET("/contact", handlers.ContactPageHandler)
 	server.GET("/post/:id", handlers.PostPageHandler)
+	server.POST("/send_message", api.SendMessageHandler)
 
 	// API Handlers
 	server.GET("/api/posts", api.GetAllPostsHandler)
@@ -25,4 +26,5 @@ func SetupRouter(server *echo.Echo) {
 	server.POST("/api/tags", api.CreateTagHandler)
 	server.PUT("/api/tags/:id", api.UpdateTagByIDHandler)
 	server.DELETE("/api/tags/:id", api.DeleteTagByIDHandler)
+
 }

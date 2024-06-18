@@ -7,7 +7,7 @@ import (
 
 func GetAllPosts() ([]models.Post, int64, error) {
 	var posts []models.Post
-	err := db.DB.Find(&posts).Error
+	err := db.DB.Order("created_at DESC").Find(&posts).Error
 	if err != nil {
 		return nil, 0, err
 	}
