@@ -7,7 +7,7 @@ import (
 
 func GetAllPosts() ([]models.Post, int64, error) {
 	var posts []models.Post
-	err := db.DB.Order("created_at DESC").Find(&posts).Error
+	err := db.DB.Order("created_at DESC").Preload("Tags").Find(&posts).Error
 	if err != nil {
 		return nil, 0, err
 	}
@@ -23,7 +23,7 @@ func GetAllPosts() ([]models.Post, int64, error) {
 
 func GetPostByID(id uint) (models.Post, error) {
 	var post models.Post
-	err := db.DB.Where("id = ?", id).First(&post).Error
+	err := db.DB.Where("id = ?", id).Preload("Tags").First(&post).Error
 	return post, err
 }
 
@@ -33,6 +33,7 @@ type CreatePostData struct {
 	Content     string `json:"content"`
 	ImageURL    string `json:"image_url"`
 	Published   bool   `json:"published"`
+	// Todo add a way to add tags
 }
 
 func CreatePost(data CreatePostData) (models.Post, error) {
