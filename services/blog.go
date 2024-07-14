@@ -28,21 +28,25 @@ func GetPostByID(id uint) (models.Post, error) {
 }
 
 type CreatePostData struct {
-	Title       string `json:"title"`
-	Description string `json:"description"`
-	Content     string `json:"content"`
-	ImageURL    string `json:"image_url"`
-	Published   bool   `json:"published"`
+	Title           string `json:"title"`
+	Description     string `json:"description"`
+	Content         string `json:"content"`
+	ImageURL        string `json:"image_url"`
+	ImageCaption    string `json:"image_caption"`
+	ImageCaptionURL string `json:"image_caption_url"`
+	Published       bool   `json:"published"`
 	// Todo add a way to add tags
 }
 
 func CreatePost(data CreatePostData) (models.Post, error) {
 	post := models.Post{
-		Title:       data.Title,
-		ImageURL:    data.ImageURL,
-		Content:     data.Content,
-		Description: data.Description,
-		Published:   data.Published,
+		Title:           data.Title,
+		ImageURL:        data.ImageURL,
+		ImageCaption:    data.ImageCaption,
+		ImageCaptionURL: data.ImageCaptionURL,
+		Content:         data.Content,
+		Description:     data.Description,
+		Published:       data.Published,
 	}
 
 	err := db.DB.Create(&post).Error

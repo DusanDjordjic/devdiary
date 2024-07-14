@@ -35,12 +35,14 @@ func PostPageHandler(e echo.Context) error {
 	))
 
 	err = tmp.ExecuteTemplate(e.Response(), "base", map[string]any{
-		"ID":          post.ID,
-		"CreatedAt":   post.CreatedAt,
-		"Title":       post.Title,
-		"Description": post.Description,
-		"ImageURL":    post.ImageURL,
-		"Content":     template.HTML(post.Content),
+		"ID":              post.ID,
+		"CreatedAt":       post.CreatedAt,
+		"Title":           post.Title,
+		"Description":     post.Description,
+		"ImageURL":        post.ImageURL,
+		"ImageCaption":    post.ImageCaption,
+		"ImageCaptionURL": post.ImageCaptionURL,
+		"Content":         template.HTML(post.Content),
 	})
 
 	if err != nil {

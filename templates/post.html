@@ -5,7 +5,10 @@
 {{ define "content" }}
 <div class="container">
     <div class="post">
-        <img class="image" src="{{ .ImageURL }}" />
+        <figure>
+            <img class="image" src="{{ .ImageURL }}" />
+            <figcaption><a href={{ .ImageCaptionURL }} target="_blank">{{ .ImageCaption }}</a></figcaption>
+        </figure>
         <p class="date">{{ .CreatedAt.Format "2006-01-02 15:04" }}</p>
         <h1 class="title">{{ .Title }}</h1>
         <p class="shortdesc">{{ .Description}}</p>
