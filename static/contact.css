@@ -4,13 +4,6 @@
     gap: var(--space-4);
 }
 
-.subheader {
-    display: block;
-    padding: var(--space-2);
-    border-left: 2px solid var(--color-primary);
-    color: var(--color-text-gray);
-}
-
 h2 {
     text-align: center;
 }

@@ -1,3 +1,13 @@
+.base-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.base-layout main {
+    flex-grow: 1;
+}
+
 .header {
     background-color: var(--color-bg);
     padding: var(--space-2) var(--space-4);

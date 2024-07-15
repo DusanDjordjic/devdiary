@@ -2,7 +2,7 @@ package models
 
 type Tag struct {
 	ID              uint
-	Text            string
+	Text            string `gorm:"uniqueIndex"`
 	Color           string
 	BackgroundColor string
 	Posts           []Post `gorm:"many2many:post_tags"`

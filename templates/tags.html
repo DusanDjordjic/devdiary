@@ -1,0 +1,13 @@
+{{ define "imports"}}
+<link rel="stylesheet" href="/static/tags.css">
+{{ end }}
+{{ define "content" }}
+<div class="container">
+    <h1>List of tags ({{ .Count }})</h1>
+    <div class="tags">
+        {{ range .Tags }}
+        <a href="/tags/{{ .Text }}">{{ .Text }}</a>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

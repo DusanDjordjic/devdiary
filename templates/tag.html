@@ -1,13 +1,11 @@
 {{ define "imports"}}
-<link rel="stylesheet" href="/static/home.css">
+<link rel="stylesheet" href="/static/tag.css">
 <link rel="stylesheet" href="/static/posts.css">
 {{ end }}
 
 {{ define "content" }}
 <div class="container">
-    <h1>Welcome to Dev Diary!</h1>
-    <p>Here, I'll be sharing my journey of learning new programming techniques and languages. Through this blog, I aim to create useful posts about what I've learned and share my knowledge with others to help them achieve their programming goals.</p>
-    <h2>Recent Posts</h2>
+    <h1>Tag "{{ .Text }}"</h1>
     <div class="posts">
     {{ range .Posts}}
         <div class="post">

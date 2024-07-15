@@ -15,26 +15,30 @@
     {{ template "imports" . }}
 </head>
 <body>
-    <header class="header">
-        <h3><a href="/">DEV DIARY</a></h3>
-        <nav class="nav">
-            <ul class="links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-   {{ template "content" . }} 
-    <footer class="footer">
-        <div class="container">
-            <ul class="links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </div>
-    </footer>
+    <div class="base-layout">
+        <header class="header">
+            <h3><a href="/">DEV DIARY</a></h3>
+            <nav class="nav">
+                <ul class="links">
+                    <li><a href="/">Posts</a></li>
+                    <li><a href="/tags">Tags</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>{{ template "content" . }}</main>
+        <footer class="footer">
+            <div class="container">
+                <ul class="links">
+                    <li><a href="/">Posts</a></li>
+                    <li><a href="/tags">Tags</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
 {{ end }}

@@ -27,6 +27,12 @@ func GetTagByID(id uint) (models.Tag, error) {
 	return tag, err
 }
 
+func GetTagByNameWithPosts(name string) (models.Tag, error) {
+	var tag models.Tag
+	err := db.DB.Where("text = ?", name).Preload("Posts.Tags").First(&tag).Error
+	return tag, err
+}
+
 type CreateTagData struct {
 	Text            string `json:"text"`
 	Color           string `json:"color"`
