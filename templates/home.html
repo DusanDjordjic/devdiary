@@ -5,8 +5,8 @@
 {{ define "content" }}
 <div class="container">
     <h1>Welcome to Dev Diary!</h1>
-    <p class="subheader">Here, I'll be sharing my journey of learning new programming techniques and languages. Through this blog, I aim to create useful posts about what I've learned and share my knowledge with others to help them achieve their programming goals.</p>
-    <h2>Posts</h2>
+    <p>Here, I'll be sharing my journey of learning new programming techniques and languages. Through this blog, I aim to create useful posts about what I've learned and share my knowledge with others to help them achieve their programming goals.</p>
+    <h2>Recent Posts</h2>
     <div class="posts">
     {{ range .Posts}}
         <div class="post">
@@ -16,9 +16,9 @@
                 <h3 class="title"><a href="/post/{{ .ID }}">{{ .Title }}</a></h3>
                 <p class="shortdesc">{{ .Description}}</p>
                 <div class="tags">
-                    <span>#golang</span>
-                    <span>#gorm</span>
-                    <span>#backend</span>
+                {{ range .Tags}}
+                    <a href="/tags/{{.Text}}" >#{{ .Text }}</a>
+                {{ end }}
                 </div>
             </div>
         </div>

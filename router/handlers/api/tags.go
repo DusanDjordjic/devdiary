@@ -42,7 +42,7 @@ func GetTagByIDHandler(c echo.Context) error {
 		return web.Error(http.StatusNotFound, err)
 	}
 
-	web.Data(c, tag)
+	web.Data(c, tag.ToDTO())
 	log.Info("finished")
 	return nil
 }

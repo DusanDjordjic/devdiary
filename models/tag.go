@@ -9,10 +9,10 @@ type Tag struct {
 }
 
 type TagDTO struct {
-	ID              uint
-	Text            string
-	Color           string
-	BackgroundColor string
+	ID              uint   `json:"id"`
+	Text            string `json:"text"`
+	Color           string `json:"color"`
+	BackgroundColor string `json:"background_color"`
 }
 
 func (t Tag) ToDTO() TagDTO {
@@ -25,7 +25,7 @@ func (t Tag) ToDTO() TagDTO {
 }
 
 func DTOTags(tags []Tag) []TagDTO {
-	var dtos []TagDTO
+	dtos := make([]TagDTO, 0)
 	for _, p := range tags {
 		dtos = append(dtos, p.ToDTO())
 	}

@@ -28,12 +28,14 @@ func GetTagByID(id uint) (models.Tag, error) {
 }
 
 type CreateTagData struct {
+	Text            string `json:"text"`
 	Color           string `json:"color"`
 	BackgroundColor string `json:"background_color"`
 }
 
 func CreateTag(data CreateTagData) (models.Tag, error) {
 	tag := models.Tag{
+		Text:            data.Text,
 		Color:           data.Color,
 		BackgroundColor: data.BackgroundColor,
 	}

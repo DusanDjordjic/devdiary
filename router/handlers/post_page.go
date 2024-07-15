@@ -43,6 +43,7 @@ func PostPageHandler(e echo.Context) error {
 		"ImageCaption":    post.ImageCaption,
 		"ImageCaptionURL": post.ImageCaptionURL,
 		"Content":         template.HTML(post.Content),
+		"Tags":            post.Tags,
 	})
 
 	if err != nil {
