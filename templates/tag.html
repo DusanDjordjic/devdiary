@@ -9,10 +9,10 @@
     <div class="posts">
     {{ range .Posts}}
         <div class="post">
-            <a class="image-link" href="/post/{{ .ID }}"><img class="image" src="{{ .ImageURL }}" /></a>
+            <a class="image-link" href="/posts/{{ .ID }}"><img class="image" src="{{ .ImageURL }}" /></a>
             <div class="data">
                 <p class="date">{{ .CreatedAt.Format "2006-01-02 15:04" }}</p>
-                <h3 class="title"><a href="/post/{{ .ID }}">{{ .Title }}</a></h3>
+                <h3 class="title"><a href="/posts/{{ .ID }}">{{ .Title }}</a></h3>
                 <p class="shortdesc">{{ .Description}}</p>
                 <div class="tags">
                 {{ range .Tags}}

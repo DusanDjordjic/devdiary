@@ -2,6 +2,11 @@
 
 - make sending messages work
 
-- make search by tags and search by name possible 
+- search by name
 
 - write some posts
+
+- add a deafult route to redirect requests to root
+
+- add projects so that we can group posts by projects
+

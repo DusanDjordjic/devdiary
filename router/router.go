@@ -13,7 +13,7 @@ func SetupRouter(server *echo.Echo) {
 	server.GET("/contact", handlers.ContactPageHandler)
 	server.GET("/tags", handlers.TagsPageHandler)
 	server.GET("/tags/:name", handlers.TagPageHandler)
-	server.GET("/post/:id", handlers.PostPageHandler)
+	server.GET("/posts/:id", handlers.PostPageHandler)
 	server.POST("/send_message", api.SendMessageHandler)
 
 	// API Handlers
@@ -28,5 +28,8 @@ func SetupRouter(server *echo.Echo) {
 	server.POST("/api/tags", api.CreateTagHandler)
 	server.PUT("/api/tags/:id", api.UpdateTagByIDHandler)
 	server.DELETE("/api/tags/:id", api.DeleteTagByIDHandler)
+
+	// Catch all page to redirect to "/"
+	server.GET("/*", handlers.CatchAllPage)
 
 }
