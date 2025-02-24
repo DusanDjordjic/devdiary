@@ -22,6 +22,8 @@ func main() {
 	}
 
 	server := echo.New()
+	server.HideBanner = true
+	server.HidePort = true
 	server.Static("/static", utils.GetStaticFolderPath())
 	router.SetupRouter(server)
 

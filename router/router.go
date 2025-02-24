@@ -14,7 +14,7 @@ func SetupRouter(server *echo.Echo) {
 	server.GET("/tags", handlers.TagsPageHandler)
 	server.GET("/tags/:name", handlers.TagPageHandler)
 	server.GET("/posts/:id", handlers.PostPageHandler)
-	server.POST("/send_message", api.SendMessageHandler)
+	server.POST("/contact", api.SendMessageHandler)
 
 	// API Handlers
 	server.GET("/api/posts", api.GetAllPostsHandler)

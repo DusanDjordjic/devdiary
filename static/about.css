@@ -10,3 +10,13 @@
     display: block;
     border-radius: 0.5rem;
 }
+
+.about ul {
+    margin-left: 24px;
+    margin-bottom: 16px;
+    list-style: disc;
+
+    &::last-of-type {
+        margin-bottom: 0px;
+    }
+}
